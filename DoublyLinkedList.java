@@ -163,7 +163,6 @@ public class DoublyLinkedList
 	if(current.next == null)
 	{
 	     reversedData += current.data + ", ";
-
 	}
 
 	while(current.prev != null)
