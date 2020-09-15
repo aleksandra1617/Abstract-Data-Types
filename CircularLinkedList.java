@@ -76,7 +76,6 @@ public class CircularLinkedList
 			empty = false;
 		}
 		
-		
 		return empty;
     }
     
@@ -105,7 +104,6 @@ public class CircularLinkedList
                 {
                     instence ++;
                 }
-                
             }
 
         return size-2;
@@ -120,17 +118,13 @@ public class CircularLinkedList
     public boolean deleteAtPos(int index) //from 42 to 46 % - 4%
     {
         // Delete the node at index `index` in the list. Return true on success, false on failure.
-        // FILL THIS IN.
-		
+        // FILL THIS IN.	
 		
         boolean deleted = false;
-
         ListNode current = head;
-
 
         for(int i = 0; i <= index; i++)
         {
-
                 if(i == index)
                 {
                         ListNode toDelete = current.next;
@@ -141,10 +135,8 @@ public class CircularLinkedList
                         deleted = true;
                         return deleted;
                 }
-                
                 current = current.next;
         }
-
 
         return deleted;
     }
@@ -168,7 +160,6 @@ public class CircularLinkedList
         {
                 node = node.next;
                 index++;
-                
                 
                 if(node.data == 999)
                 {
