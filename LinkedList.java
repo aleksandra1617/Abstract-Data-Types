@@ -50,10 +50,12 @@ public class LinkedList
         // Add a node at the beginning of the list.
         // FILL THIS IN.
 		
-		if(head == null) 
+	if(head == null) 
         {
             head = new ListNode(data);
-        }else{
+        }
+	else
+	{
             ListNode newNode = new ListNode(data);
             newNode.next = head; 
             head = newNode;
@@ -71,7 +73,7 @@ public class LinkedList
         // Retrieve the data stored in the first node of the list, if it exists. Otherwise return 999.
         // FILL THIS IN.
 		
-		return head.data;
+	return head.data;
     }
 
     /**
@@ -88,28 +90,19 @@ public class LinkedList
 		
         ListNode current = head;
             
-        
-            for (int i = 0; i <= index; i++) 
-            {
-              
-                if(i == index)
-                {
-                    
-                    return current.data;
-                   
-                } 
-                else if(current.next == null)
-                {
-                    return 999;
-                }
-                
-                current = current.next;
-            }
+	for (int i = 0; i <= index; i++) 
+	{
+	     if(i == index)
+	     {
+		 return current.data;   
+             } 
+             else if(current.next == null)
+             {
+                 return 999;
+             }
+                 current = current.next;
+	}
        
-        
-           
-        
-        
         return 999;
     }
 
@@ -124,13 +117,11 @@ public class LinkedList
         // Return the first node containing `value`. If not found, return null.
         // FILL THIS IN.
 		
-		ListNode node = head;
+	ListNode node = head;
         
-
         while(node.data != value && node.next != null)
         {
-                node = node.next;
-                
+	    node = node.next;  
         }
         
         if(node.next == null)
@@ -140,5 +131,4 @@ public class LinkedList
 
         return node;
     }
-	
 }
