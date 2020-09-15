@@ -57,18 +57,16 @@ public class DoublyLinkedList
         
         DoublyLinkedListNode current = head;
         
-        
         while(current.next != null)
         {
             current = current.next;
         }
        
-            
         if(current.next == null)
         {
             DoublyLinkedListNode last = new DoublyLinkedListNode(data);
             current.next = last;
-			last.prev = current;
+	    last.prev = current;
         }
     }
 
@@ -82,18 +80,21 @@ public class DoublyLinkedList
         // Retrieve the data stored in the last node of the list, if it exists. Otherwise return 999.
         // FILL THIS IN.
 		
-	    DoublyLinkedListNode current = head;
-	    
-	    if(head.next == null)
+	DoublyLinkedListNode current = head;
+
+	if(head.next == null)
+	{
+	    return 999;
+		
+	}
+	else
+	{
+	    while(current.next != null)
 	    {
-			return 999;
-	    }else{
-            
-			while(current.next != null)
-			{
-				current = current.next;
-			}
+		current = current.next;
+	    }
         }
+	    
         return current.data;
     }
 
@@ -109,7 +110,7 @@ public class DoublyLinkedList
         // Adds a node after position `index`, if it exists, and returns true. Returns false on failure.
         // FILL THIS IN.
 		
-		boolean added = false;
+	boolean added = false;
 		
         DoublyLinkedListNode current = head;
         DoublyLinkedListNode newNode = new DoublyLinkedListNode(data);
@@ -117,18 +118,16 @@ public class DoublyLinkedList
         
         for(int i = 1; i <= index; i++)
         {
-            
             if(i == index)
             {            
+	    	holder = current.next;
 
-                    holder = current.next;
+	    	newNode.next = holder;
+	    	holder.prev = newNode;
+	    	newNode.prev = current;
+	    	current.next = newNode;
 
-                    newNode.next = holder;
-                    holder.prev = newNode;
-                    newNode.prev = current;
-                    current.next = newNode;
-
-                    return added = true;
+	    	return added = true;
             }
             
             if(current == null)
@@ -138,7 +137,6 @@ public class DoublyLinkedList
             
             current = current.next;
         }
-
 
         return added;
     }
@@ -153,33 +151,34 @@ public class DoublyLinkedList
         // Returns a string with the data of all nodes starting from the last node. 
         // FILL THIS IN.
 		
-		String reversedData = "";
+	String reversedData = "";
 		
         DoublyLinkedListNode current = head;
 		
-		
-            while(current.next != null)
-            {
-                    current = current.next;
-			}
-		
-            if(current.next == null)
-            {
-                reversedData += current.data + ", ";
-                
-            }
-		
-            while(current.prev != null)
-            {
-                    current = current.prev;
-                    if(current.prev == null)
-                    {
-                        reversedData += current.data;
-                    } else{
-                        reversedData += current.data+ ", ";
-                    }
-            }
+	while(current.next != null)
+	{
+	    current = current.next;
+	}
 
-		return reversedData;
+	if(current.next == null)
+	{
+	     reversedData += current.data + ", ";
+
+	}
+
+	while(current.prev != null)
+	{
+	    current = current.prev;
+	    if(current.prev == null)
+	    {
+		reversedData += current.data;
+	    }
+	    else
+	    {
+		reversedData += current.data+ ", ";
+	    }
+	}
+
+	return reversedData;
     }
 } 
